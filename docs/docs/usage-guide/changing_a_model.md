@@ -1,7 +1,7 @@
 ## Changing a model in PR-Agent
 
 See [here](https://github.com/Codium-ai/pr-agent/blob/main/pr_agent/algo/__init__.py) for a list of available models.
-To use a different model than the default (o3-mini), you need to edit in the [configuration file](https://github.com/Codium-ai/pr-agent/blob/main/pr_agent/settings/configuration.toml#L2) the fields:
+To use a different model than the default (o4-mini), you need to edit in the [configuration file](https://github.com/Codium-ai/pr-agent/blob/main/pr_agent/settings/configuration.toml#L2) the fields:
 
 ```toml
 [config]
@@ -46,7 +46,6 @@ client_secret = ""  # Your Azure AD application client secret
 tenant_id = ""  # Your Azure AD tenant ID
 api_base = ""  # Your Azure OpenAI service base URL (e.g., https://openai.xyz.com/)
 ```
-
 
 Passing custom headers to the underlying LLM Model API can be done by setting extra_headers parameter to litellm.
 
@@ -251,6 +250,34 @@ key = ... # your DeepInfra api key
 
 (you can obtain a DeepInfra key from [here](https://deepinfra.com/dash/api_keys))
 
+### Mistral
+
+To use models like Mistral or Codestral with Mistral, for example, set:
+
+```toml
+[config] # in configuration.toml
+model = "mistral/mistral-small-latest"
+fallback_models = ["mistral/mistral-medium-latest"]
+[mistral] # in .secrets.toml
+key = "..." # your Mistral api key
+```
+
+(you can obtain a Mistral key from [here](https://console.mistral.ai/api-keys))
+
+### Codestral
+
+To use Codestral model with Codestral, for example, set:
+
+```toml
+[config] # in configuration.toml
+model = "codestral/codestral-latest"
+fallback_models = ["codestral/codestral-2405"]
+[codestral] # in .secrets.toml
+key = "..." # your Codestral api key
+```
+
+(you can obtain a Codestral key from [here](https://console.mistral.ai/codestral))
+
 ### Custom models
 
 If the relevant model doesn't appear [here](https://github.com/Codium-ai/pr-agent/blob/main/pr_agent/algo/__init__.py), you can still use it as a custom model:
@@ -284,7 +311,7 @@ To bypass chat templates and temperature controls, set `config.custom_reasoning_
 reasoning_efffort= = "medium" # "low", "medium", "high"
 ```
 
-With the OpenAI models that support reasoning effort (eg: o3-mini), you can specify its reasoning effort via `config` section. The default value is `medium`. You can change it to `high` or `low` based on your usage.
+With the OpenAI models that support reasoning effort (eg: o4-mini), you can specify its reasoning effort via `config` section. The default value is `medium`. You can change it to `high` or `low` based on your usage.
 
 ### Anthropic models
 
