@@ -1,8 +1,7 @@
 # Usage guide
 
-This page provides a detailed guide on how to use Qodo Merge.
+This section provides a detailed guide on how to use Qodo Merge.
 It includes information on how to adjust Qodo Merge configurations, define which tools will run automatically, and other advanced configurations.
-
 
 - [Introduction](./introduction.md)
 - [Enabling a Wiki](./enabling_a_wiki)
@@ -17,7 +16,7 @@ It includes information on how to adjust Qodo Merge configurations, define which
     - [Azure DevOps Provider](./automations_and_usage.md#azure-devops-provider)
 - [Managing Mail Notifications](./mail_notifications.md)
 - [Changing a Model](./changing_a_model.md)
-- [Additional Configurations Walkthrough](./additional_configurations.md)
+- [Additional Configurations](./additional_configurations.md)
     - [Ignoring files from analysis](./additional_configurations.md#ignoring-files-from-analysis)
     - [Extra instructions](./additional_configurations.md#extra-instructions)
     - [Working with large PRs](./additional_configurations.md#working-with-large-prs)
